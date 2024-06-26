@@ -1,6 +1,7 @@
 // ==========================Create element for Icon Image
 const iconLink = document.createElement('link');
 iconLink.setAttribute('href', './media/image/profileICON.ico')
+iconLink.setAttribute('href', './media/image/profileICON.ico')
 iconLink.setAttribute('rel', 'icon')
 iconLink.setAttribute('type', 'image/x-icon')
 
@@ -22,6 +23,7 @@ basicFontStyleSheet.setAttribute('rel', 'stylesheet')
 // ==========================Create element for Basic Javascript 
 //Navigation Element Javascript 
 const headerScript = document.createElement('script');
+headerScript.setAttribute ('src','./javascript/navigation.js')
 headerScript.setAttribute ('src','./javascript/navigation.js')
 headerScript.setAttribute ('defer','true')
 
