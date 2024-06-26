@@ -1,0 +1,421 @@
+/*======  Universal Style ===========================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Nunito;
+}
+
+table {
+    border: 0px;
+    border-spacing: 0px;
+}
+
+body {
+    background-color: #f3c136ff;
+}
+
+.container {
+    overflow: hidden;
+}
+
+section p code,
+section li code {
+    line-height: 1rem;
+    padding: 0 10px;
+}
+
+/* ====== Header  ====================================================*/
+
+header {
+    background-color:white;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    box-shadow: 0px 5px 25px black;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    box-sizing: border-box;
+    align-items: center;
+
+}
+
+/*
+img.logo {
+    height: 80px;
+}
+*/
+
+header h1 {
+    color: gray;
+    font-weight: thin;
+    margin-left: 10px;
+}
+
+/* ----- (1st Level ) Navigation   -----*/
+
+header nav {
+    justify-self: end;
+    flex-basis: 600px;
+    flex-shrink: 0;
+}
+
+
+/*
+header nav ul,
+header nav ul li a {
+    background-color: rgb(49, 66, 52);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+*/
+header nav,
+header nav ul,
+header nav li,
+header nav a {
+    display: flex;
+    color: gray;
+
+}
+
+header nav a {
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+header nav a::before{
+    content: '|';
+    margin-right: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+/*
+header nav li a:active,
+header nav li a:hover,
+header nav li a::selection {
+    background-color: white;
+    color: black;
+}
+*/
+
+/* ====== Banner  ====================================================*/
+#banner{
+    width: 100%;
+    height: 450px;
+    background-color: #034C3C;
+    margin-top: 80px;
+}
+
+#bannerdisplay{
+    min-width: 750px;
+    height: 100%;
+    border: 1px solid black;
+    position: relative;
+}
+
+#avatar{
+    background-color: #a1cebb;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    width: 300px;
+    margin: 0 auto;
+    bottom: -20px;
+    border-radius: 200px 200px 0 0 ;
+}
+#avatar img{
+    height: 300px;
+    margin-top: 50px;
+}
+
+
+/* ====== 2nd  Navigation  ====================================================*/
+
+/* ----- Items   -----*/
+
+nav.secNav {
+    background-color: white;
+    padding: 10px;
+
+    overflow: hidden;
+}
+
+
+nav.secNav ul {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: visible;
+    box-sizing: content-box;
+    position: relative;
+    margin: 0 25px;
+    left: 0px;
+    transition-property: left, right;
+    transition-duration: 1.5s;
+
+}
+
+nav.secNav li {
+    margin: 0px 15px;
+    list-style: none;
+    display: flex;
+    flex-shrink: 0;
+
+
+
+}
+
+nav.secNav a {
+    color: black;
+    text-decoration: none;
+
+}
+
+/* ----- Arrow Buttons   -----*/
+
+nav.secNav img {
+    height: 25px;
+    position: absolute;
+    cursor: pointer;
+    z-index: 2;
+    background-color: white;
+    display: none;
+}
+
+nav.secNav img.left {
+    top: 10px;
+    left: 0px;
+
+
+}
+
+nav.secNav img.right {
+    top: 10px;
+    right: 0px;
+
+}
+
+/* ====== Main Content   ====================================================*/
+
+#content {
+    position: relative;
+    margin-top: 120px;
+}
+
+/* ---- Heading in Sections   ---*/
+
+#content h1,
+#content h2,
+#content h3 {
+    font-family: Aleo;
+}
+
+
+#content h1 {
+    color: White;
+    margin: 10px;
+    font-size: 2.5em;
+    border-bottom: 3px solid white;
+
+}
+
+#content h2 {
+    color: #e57a44ff;
+    margin: 10px;
+
+}
+
+#content h3 {
+    color: #D6DBB2;
+    margin: 10px;
+
+
+}
+
+/* ---- Containers  in Sections   ---*/
+#content .container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+section {
+    background-color: white;
+
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    flex: 1 1 500px;
+    text-align: justify;
+}
+
+section.expand{
+    display: none;
+}
+
+/* ---- Tabales   in Sections   ---*/
+
+section table,
+section tr,
+section td {
+    border: 1px solid black;
+}
+
+section td {
+    padding: 2px 3px;
+}
+
+section table a {
+    text-decoration: none;
+    background-color: rgb(216, 216, 216);
+    color: #528a79;
+}
+
+/* ---- Code Tag    in Sections   ---*/
+section code {
+    background-color: #D6DBB2;
+    padding: 5px 25px;
+    margin: 5px 0;
+    display: inline-block;
+}
+
+/* ---- Paragraph     in Sections   ---*/
+
+section p {
+    margin: 15px 0px;
+}
+
+/* ---- Images      in Sections   ---*/
+section img {
+    max-width: 100%;
+}
+
+/* ---- List Items       in Sections   ---*/
+section li {
+    list-style: square;
+
+    margin-left: 30px;
+}
+
+.expandBtn {
+    display: block;
+    padding: 5px;
+    margin: 10px 0;
+}
+
+/* ====== Popup Container    ====================================================*/
+
+#popupcontainer {
+    background-color: rgba(255, 255, 255, 0.75);
+    width: 0%;
+    height: 0%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    overflow: hidden;
+    display: flex;
+    opacity: 0;
+    z-index: -1;
+    transition-property: width, height, opacity;
+    transition-duration: 1.5s;
+
+}
+
+
+
+#sectiondisplay {
+    justify-self: center;
+    align-self: center;
+    max-height: 90%;
+    margin: 10%;
+    flex: auto;
+    background-color: white;
+    opacity:1 ;
+    border: 5px solid black ;
+    border-radius: 15px;
+    padding: 2%;
+    overflow: auto;
+}
+
+#displayclosebtn {
+    width: 35px;
+    height: auto;
+    cursor: pointer;
+    display: block;
+    float: right;
+    margin: 0 0 20px 20px
+    
+
+}
+
+
+/* ====== Code from CodeAcademy   ====================================================*/
+
+.gamut-13bvm8t {
+    display: block;
+    text-align: left;
+    font-weight: normal;
+    background-color: rgb(33, 30, 47);
+    color: rgb(147, 149, 152);
+    font-family: Monaco, Menlo, "Ubuntu Mono", "Droid Sans Mono", Consolas, monospace;
+    font-size: 0.875rem;
+    padding: 1rem 2rem 1rem 1rem;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    -webkit-font-smoothing: antialiased;
+}
+
+.mtk1 {
+    color: #ffffff;
+}
+
+.mtk4 {
+    color: #ea6c8b;
+}
+
+.mtk7 {
+    color: #b4d353;
+}
+
+.mtk8 {
+    color: #ffe083;
+}
+
+.mtk9 {
+    color: #ff8973;
+}
+
+.mtk10 {
+    color: #83fff5;
+}
+
+.mtk12 {
+    color: #b3ccff;
+}
+
+.mtk16 {
+    color: #939598;
+}
+
+.gamut-1rlug0v {
+    display: block;
+    text-align: left;
+    font-weight: normal;
+    background-color: rgb(33, 30, 47);
+    color: rgb(147, 149, 152);
+    font-family: Monaco, Menlo, "Ubuntu Mono", "Droid Sans Mono", Consolas, monospace;
+    font-size: 0.875rem;
+    padding: 1rem 2rem 1rem 1rem;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ---  desktop ---*/
