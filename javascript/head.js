@@ -6,6 +6,8 @@ iconLink.setAttribute('type', 'image/x-icon')
 
 
 
+
+
 // ==========================Create element for Basic Style Sheets
 // Basic Style
 const basicStyleSheet = document.createElement('link');
