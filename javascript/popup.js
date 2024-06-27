@@ -87,6 +87,7 @@ expandContainer.append(displayContainer);
 document.body.append(expandContainer);
 
 
+
 // Create  the Close Button 
 let initDisplayCloseButton = document.createElement('img');
 initDisplayCloseButton.setAttribute('src', './media/image/closeIcon.png');

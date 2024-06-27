@@ -274,8 +274,10 @@ header nav li a::selection {
 /*
 #AboutMe h1{
     align-self: self-start;
+    align-self: self-start;
 }
     */
+  
   
 
 #AboutMe div.introduction{
@@ -450,11 +452,13 @@ section li {
     margin-left: 30px;
 }
 /*
+/*
 .expandBtn {
     display: block;
     padding: 5px;
     margin: 10px 0;
 }
+    */
     */
 
 /* ====== Popup Container    ====================================================*/
