@@ -18,9 +18,9 @@ sectionTitle.forEach(title => {
     title.before(minimiseButtonElement);
 })
 
-// ========================== Register onClick function to the expan button 
-//---- Declare Variables for the expanded sections 
+// ========================== Declare Variables for the expanded sections  
 const expandButton = document.querySelectorAll('img.expandBtn')
+const closeButton = document.querySelectorAll('img.closeBtn')
 
 
 var targetExpandSection
@@ -28,23 +28,45 @@ var targetPositionInfo
 var targetHiddenSection
 var triggeredExpandbutton
 var triggeredClosebutton
-
+var initialExpandsectionHeight
+// ========================== Register onClick function to the expan  
 expandButton.forEach(button => {
 
     // Set the initial value for the parameters 
     button.addEventListener('mousedown', function (event) {
 
         targetExpandSection = event.target.parentNode
-        targetPositionInfo = targetExpandSection.getBoundingClientRect().top
+        targetPositionInfo = targetExpandSection.getBoundingClientRect().top + window.scrollY
+        initialExpandsectionHeight = targetExpandSection.style.minHeight
         targetHiddenSection = targetExpandSection.querySelector('.expand')
         triggeredExpandbutton = targetExpandSection.querySelector('.expandBtn')
         triggeredClosebutton = targetExpandSection.querySelector('.closeBtn')
-        targetExpandSection.style.position = "absolute";
+        
         targetExpandSection.style.top = `${targetPositionInfo}px`;
+        targetExpandSection.style.position = "absolute";
+        //alert('1st')
+        setTimeout(() => {
+            targetExpandSection.style.transitionDuration = '1.5s';
+        targetExpandSection.style.minHeight = '100%';
+        targetExpandSection.style.top = "0px";
+        targetExpandSection.style.zIndex = 11;
+        targetHiddenSection.style.display = 'flex';
+        triggeredExpandbutton.style.display = "none";
+        triggeredClosebutton.style.display = 'block';
+        },100)
+        
+        setTimeout(() => {
+            targetHiddenSection.style.opacity = 1
+        }, 800
+        )
+        //alert('2nd')
     })
 
     // Set the target value for the parameters 
+
+    /*
     button.addEventListener('click', function (event) {
+        targetExpandSection.style.transitionDuration = '1.5s';
         targetExpandSection.style.minHeight = '100%';
         targetExpandSection.style.top = "0px";
         targetExpandSection.style.zIndex = 11;
@@ -55,11 +77,39 @@ expandButton.forEach(button => {
             targetHiddenSection.style.opacity = 1
         }, 800
         )
+        alert('2nd')
     })
+        */
 })
 
-// ========================== Register onClick function to the expan button
+// ========================== Register onClick function to the close 
+closeButton.forEach(button => {
+    // Set the initial value for the parameters 
+    button.addEventListener('click', function (event) {
 
+        targetHiddenSection.style.opacity = 0
+        targetExpandSection.style.top = `${targetPositionInfo}px`;
+        targetExpandSection.style.minHeight = initialExpandsectionHeight;
+        triggeredExpandbutton.style.display = "block";
+        triggeredClosebutton.style.display = 'none';
+        setTimeout(() => {
+            targetExpandSection.style.transitionDuration = '0s';
+            targetExpandSection.style.position = "relative";
+            targetExpandSection.style.top = "0px";
+        }, 1500
+        )
+
+        /*
+        targetExpandSection = event.target.parentNode
+        targetPositionInfo = targetExpandSection.getBoundingClientRect().top
+        targetHiddenSection = targetExpandSection.querySelector('.expand')
+        triggeredExpandbutton = targetExpandSection.querySelector('.expandBtn')
+        triggeredClosebutton = targetExpandSection.querySelector('.closeBtn')
+        targetExpandSection.style.position = "absolute";
+        targetExpandSection.style.top = `${targetPositionInfo}px`;
+        */
+    })
+})
 
 
 // extracting expand information to container 

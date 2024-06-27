@@ -20,7 +20,6 @@ table {
     position: relative;
     align-content: center;
     transition-property: height, shaddow, top ,min-height ,display, opacity;
-    transition-duration: 1.5s;
 
 
 }
