@@ -1,3 +1,64 @@
+// ========================== Expand  / Minimize Button for each section 
+//---Create Element (Expand Button) 
+let expandButtonElement = document.createElement('img')
+expandButtonElement.setAttribute('src', './media/image/zoomOutIcon.svg')
+expandButtonElement.setAttribute('class', 'zoomBtn expandBtn')
+
+//---Create Element (Minimise Button) 
+let minimiseButtonElement = document.createElement('img')
+minimiseButtonElement.setAttribute('src', './media/image/zoomInICON.svg')
+minimiseButtonElement.setAttribute('class', 'zoomBtn closeBtn')
+minimiseButtonElement.setAttribute('style', 'display: none;')
+
+
+const sectionTitle = document.querySelectorAll('h1.title')
+
+sectionTitle.forEach(title => {
+    title.before(expandButtonElement);
+    title.before(minimiseButtonElement);
+})
+
+// ========================== Register onClick function to the expan button 
+
+const expandButton = document.querySelectorAll('img.expandBtn')
+/*
+function offset(el) {
+    var rect = el.getBoundingClientRect(),
+    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
+    scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    return { top: rect.top + scrollTop, left: rect.left + scrollLeft }
+}*/
+//Get the position of element 
+var targetExpandSection 
+var targetPositionInfo
+
+expandButton.forEach(button => {
+
+    button.addEventListener('mousedown', function (event) {
+        targetExpandSection = event.target.parentNode
+        targetPositionInfo = targetExpandSection.getBoundingClientRect().top
+        targetExpandSection.style.position = "absolute";
+        targetExpandSection.style.top =`${targetPositionInfo}px`;
+    })
+
+    button.addEventListener('click', function (event) {
+        targetExpandSection.style.minHeight  = '100%' ;
+        targetExpandSection.style.top = "0px";
+        targetExpandSection.style.zIndex = 11;
+    })
+
+})
+
+// extracting expand information to container 
+/*
+const expandButton = document.querySelectorAll('input.expandBtn')
+const popupContainer = document.querySelector('#popupcontainer')
+*/
+
+
+
+
+/*
 // ========================== Pop Up container 
 
 // Create the outter Most Container 
@@ -12,7 +73,7 @@ displayContainer.setAttribute('id', 'sectiondisplay');
 expandContainer.append(displayContainer);
 document.body.append(expandContainer);
 
-/*
+
 // Create  the Close Button 
 let initDisplayCloseButton = document.createElement('img');
 initDisplayCloseButton.setAttribute('src', './media/image/closeIcon.png');

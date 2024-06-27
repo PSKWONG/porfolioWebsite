@@ -20,7 +20,12 @@ body {
     padding: 30px 10%;
     box-sizing:border-box;
     position: relative;
+    transition-property: height, shaddow, top ,min-height;
+    transition-duration: 2s;
 
+}
+.container h1{
+    align-self:last baseline;
 }
 
 section p code,
@@ -49,6 +54,16 @@ h1{
     flex-grow: 1;
     flex-shrink: 1;
 }
+/*---- Zoom Button Style-----*/
+.zoomBtn {
+    display: block;
+    float: right;
+    position: absolute;
+    right:10% ;
+    top:20px;
+    cursor: pointer;
+}
+
 
 /* ====== Header  ====================================================*/
 
@@ -251,9 +266,10 @@ header nav li a::selection {
 }
 /*
 #AboutMe h1{
-    flex-basis: 100%;
+    align-self: self-start;
 }
     */
+  
 
 #AboutMe div.introduction{
     display: flexbox;
@@ -429,12 +445,13 @@ section li {
 
     margin-left: 30px;
 }
-
+/*
 .expandBtn {
     display: block;
     padding: 5px;
     margin: 10px 0;
 }
+    */
 
 /* ====== Popup Container    ====================================================*/
 
