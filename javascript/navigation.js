@@ -2,7 +2,6 @@
 //====================================================================
 document.querySelector('header').innerHTML = `
 
-
 <h1> //  EK  //</h1>
     
         <nav>
@@ -19,7 +18,7 @@ document.querySelector('header').innerHTML = `
 //Code for Second Navigation Bar 
 //=====================================================================
 //function for generating each li Items 
-
+/*
 let linkArray = []
 
 function generateliItems(title, location) {
@@ -131,3 +130,4 @@ function scrollingRight() {
     }
 }
 
+*/

@@ -11,17 +11,20 @@ table {
     border-spacing: 0px;
 }
 
-body {
-    background-color: #f3c136ff;
-}
+
 
 .container {
     overflow: hidden;
     padding: 30px 10%;
     box-sizing:border-box;
     position: relative;
+    align-content: center;
+    transition-property: height, shaddow, top ,min-height ,display, opacity;
+    transition-duration: 1.5s;
+
 
 }
+
 
 section p code,
 section li code {
@@ -49,6 +52,25 @@ h1{
     flex-grow: 1;
     flex-shrink: 1;
 }
+/*---- Zoom Button Style-----*/
+.zoomBtn {
+    display: block;
+    float: right;
+    position: absolute;
+    right:10% ;
+    top:20px;
+    cursor: pointer;
+}
+
+/*---- Hidden Section-----*/
+.expand{
+    display: none;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 2s;
+}
+
+
 
 /* ====== Header  ====================================================*/
 
@@ -251,9 +273,10 @@ header nav li a::selection {
 }
 /*
 #AboutMe h1{
-    flex-basis: 100%;
+    align-self: self-start;
 }
     */
+  
 
 #AboutMe div.introduction{
     display: flexbox;
@@ -382,9 +405,6 @@ section {
     text-align: justify;
 }
 
-section.expand{
-    display: none;
-}
 
 /* ---- Tabales   in Sections   ---*/
 
@@ -429,12 +449,13 @@ section li {
 
     margin-left: 30px;
 }
-
+/*
 .expandBtn {
     display: block;
     padding: 5px;
     margin: 10px 0;
 }
+    */
 
 /* ====== Popup Container    ====================================================*/
 
