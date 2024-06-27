@@ -43,8 +43,9 @@ h1,h2,h3,h4,h5,h6{
 }
 
 h1{
-    font-size: 3rem;
-    font-weight: 900;
+    font-size: 5rem;
+    font-weight: 100;
+    margin: 50px 0px;
 }
 /*---- Flex Style-----*/
 .flexOneRow {
@@ -242,8 +243,8 @@ header nav a::before{
     width: 100%;
     min-height: 300px;
     color: #034C3C;
-    display: flex;
     flex-wrap: wrap;
+    box-shadow: 0px 15px 25px rgba(141, 141, 141,0.45);
 }
 
 #AboutMe picture{
@@ -252,8 +253,12 @@ header nav a::before{
     background-image: url(../media/image/profilePic.png);
     background-size: cover;
     border: 3px solid white;
-    flex-basis: 150px;
-    flex-grow: 0;
+    width: 200px;
+    height: 180px;
+    display:block;
+    float: left;
+    margin-right: 80px;
+    transition: width 1s;
 }
 
 #AboutMe div.introduction{
@@ -279,229 +284,91 @@ header nav a::before{
     font-weight: 500;
 }
 
+#AboutMe .resume{
+    border:  2px solid white;
+    color: white;
+    border-radius: 25px ;
+    padding:10px; 
+    margin: 0px 15px;
+    cursor: pointer;
+    background-color: #a1cebb;
+    transition-property: background-color , color ;
+    transition-duration: 0.5s;
+    
+}
+
+#AboutMe .resume:hover{
+    background-color: white;
+    color: #034C3C;
+}
+
 /* ====== Porfolio ====================================================*/
 #Portfolio {
     background-color: #FFD639  ;
-}
-
-
-
-/* ====== Main Content   ====================================================*/
-
-#content {
-    position: relative;
-    margin-top: 120px;
-}
-
-/* ---- Heading in Sections   ---*/
-
-#content h1,
-#content h2,
-#content h3 {
-    font-family: Aleo;
-}
-
-
-#content h1 {
-    color: White;
-    margin: 10px;
-    font-size: 2.5em;
-    border-bottom: 3px solid white;
-
-}
-
-#content h2 {
-    color: #e57a44ff;
-    margin: 10px;
-
-}
-
-#content h3 {
-    color: #D6DBB2;
-    margin: 10px;
-
-
-}
-
-/* ---- Containers  in Sections   ---*/
-#content .container {
-    display: flex;
     width: 100%;
-    flex-wrap: wrap;
-    flex-direction: row;
-}
-
-section {
-    background-color: white;
-
-    margin: 20px;
-    padding: 20px;
-    border-radius: 10px;
-    flex: 1 1 500px;
-    text-align: justify;
-}
-
-
-/* ---- Tabales   in Sections   ---*/
-
-section table,
-section tr,
-section td {
-    border: 1px solid black;
-}
-
-section td {
-    padding: 2px 3px;
-}
-
-section table a {
-    text-decoration: none;
-    background-color: rgb(216, 216, 216);
-    color: #528a79;
-}
-
-/* ---- Code Tag    in Sections   ---*/
-section code {
-    background-color: #D6DBB2;
-    padding: 5px 25px;
-    margin: 5px 0;
-    display: inline-block;
-}
-
-/* ---- Paragraph     in Sections   ---*/
-
-section p {
-    margin: 15px 0px;
-}
-
-/* ---- Images      in Sections   ---*/
-section img {
-    max-width: 100%;
-}
-
-/* ---- List Items       in Sections   ---*/
-section li {
-    list-style: square;
-
-    margin-left: 30px;
-}
-/*
-/*
-.expandBtn {
-    display: block;
-    padding: 5px;
-    margin: 10px 0;
-}
-    */
-    */
-
-/* ====== Popup Container    ====================================================*/
-
-#popupcontainer {
-    background-color: rgba(255, 255, 255, 0.75);
-    width: 0%;
-    height: 0%;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    overflow: hidden;
+    min-height: 350px;
     display: flex;
-    opacity: 0;
-    z-index: -1;
-    transition-property: width, height, opacity;
-    transition-duration: 1.5s;
-
+    flex-wrap: wrap;
+    justify-content: space-around;
+    box-shadow: 0px 15px 25px rgba(141, 141, 141,0.45);
 }
 
+.showcaseContainer{
+    overflow: hidden;
+    border: 2px solid white;
+    background-color: rgb(33, 30, 47);
+    height: 250px;
+    width: 350px;
+    border-radius: 10px;
+    position: relative;
+    transition-property: width flex;
+    transition-duration: 1s;
+}
 
-
-#sectiondisplay {
-    justify-self: center;
-    align-self: center;
-    max-height: 90%;
-    margin: 10%;
-    flex: auto;
+.projecttype{
     background-color: white;
-    opacity:1 ;
-    border: 5px solid black ;
-    border-radius: 15px;
-    padding: 2%;
-    overflow: auto;
+    color: black;
+    border-radius: 3px;
+    display: inline-block;
+    position: absolute;
+    padding: 3px 30px;
+    top: 20px;
+    left: -5px;
+    transform: rotate(-5deg);
 }
 
-#displayclosebtn {
-    width: 35px;
+.showcaseContainer img {
+    width: 200px;
     height: auto;
-    cursor: pointer;
-    display: block;
-    float: right;
-    margin: 0 0 20px 20px
-    
+    border-radius: 5px;
+    position: absolute;
+    right: -10px;
+    bottom:-10px;
+    transform: rotate(-15deg);
+    box-shadow: 0 0px 25px grey;
+}
 
+.projecttitle{
+    width: 100%;
+    border-radius: 5px;
+    background-color: #FFD639;
+    opacity: 0.9;
+    position: absolute;
+    bottom: -20px;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 1.35rem;
+    text-align: center;
+    overflow: hidden;
+    height: 0%;
+    transition-property: height;
+    transition-duration: 0.5s ;
+}
+.showcaseContainer:hover .projecttitle{
+    height: 35%;
 }
 
 
-/* ====== Code from CodeAcademy   ====================================================*/
-
-.gamut-13bvm8t {
-    display: block;
-    text-align: left;
-    font-weight: normal;
-    background-color: rgb(33, 30, 47);
-    color: rgb(147, 149, 152);
-    font-family: Monaco, Menlo, "Ubuntu Mono", "Droid Sans Mono", Consolas, monospace;
-    font-size: 0.875rem;
-    padding: 1rem 2rem 1rem 1rem;
-    overflow-wrap: break-word;
-    white-space: pre-wrap;
-    -webkit-font-smoothing: antialiased;
-}
-
-.mtk1 {
-    color: #ffffff;
-}
-
-.mtk4 {
-    color: #ea6c8b;
-}
-
-.mtk7 {
-    color: #b4d353;
-}
-
-.mtk8 {
-    color: #ffe083;
-}
-
-.mtk9 {
-    color: #ff8973;
-}
-
-.mtk10 {
-    color: #83fff5;
-}
-
-.mtk12 {
-    color: #b3ccff;
-}
-
-.mtk16 {
-    color: #939598;
-}
-
-.gamut-1rlug0v {
-    display: block;
-    text-align: left;
-    font-weight: normal;
-    background-color: rgb(33, 30, 47);
-    color: rgb(147, 149, 152);
-    font-family: Monaco, Menlo, "Ubuntu Mono", "Droid Sans Mono", Consolas, monospace;
-    font-size: 0.875rem;
-    padding: 1rem 2rem 1rem 1rem;
-    overflow-wrap: break-word;
-    white-space: pre-wrap;
-    -webkit-font-smoothing: antialiased;
-}
 
 
 /* ---  desktop ---*/

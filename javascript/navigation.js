@@ -2,7 +2,7 @@
 //====================================================================
 document.querySelector('header').innerHTML = `
 
-<h1> //  EK  //</h1>
+<span> //  EK  //</span>
     
         <nav>
             <ul>

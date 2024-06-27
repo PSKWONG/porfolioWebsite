@@ -1,0 +1,25 @@
+body{
+    overflow-y: hidden;
+}
+
+/* ====== About Me  ====================================================*/
+#AboutMe{
+    overflow-y: auto;
+    display: block;
+}
+#AboutMe picture{
+   
+    display: inline-block;
+    width: auto;
+    width: 150px;
+}
+
+#Portfolio{
+    overflow-y: auto;
+}
+
+/* ====== Porfolio ====================================================*/
+.showcaseContainer {
+    width: 100%;
+    height: ;
+}
