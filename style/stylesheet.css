@@ -26,6 +26,10 @@ table {
 
 }
 
+.container em {
+    color: white;
+}
+
 
 section p code,
 section li code {
