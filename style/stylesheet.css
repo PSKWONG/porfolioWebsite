@@ -19,9 +19,15 @@ table {
     box-sizing:border-box;
     position: relative;
     align-content: center;
-    transition-property: height, shaddow, top ,min-height ,display, opacity;
+    flex-wrap: wrap;
+    line-height: 1.5;
+    transition-property: height, shaddow, top ,min-height ,display, opacity, font-size;
 
 
+}
+
+.container em {
+    color: white;
 }
 
 
@@ -33,6 +39,7 @@ section li code {
 
 h1,h2,h3,h4,h5,h6{
     font-family: "Lato", sans-serif;
+    margin: 20px 0;
 }
 
 h1{
@@ -67,6 +74,7 @@ h1{
     opacity: 0;
     transition-property: opacity;
     transition-duration: 2s;
+    padding: 0;
 }
 
 

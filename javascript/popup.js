@@ -41,45 +41,27 @@ expandButton.forEach(button => {
         targetHiddenSection = targetExpandSection.querySelector('.expand')
         triggeredExpandbutton = targetExpandSection.querySelector('.expandBtn')
         triggeredClosebutton = targetExpandSection.querySelector('.closeBtn')
-        
+
         targetExpandSection.style.top = `${targetPositionInfo}px`;
         targetExpandSection.style.position = "absolute";
-        //alert('1st')
+        targetExpandSection.style.fontSize = '1rem'
         setTimeout(() => {
             targetExpandSection.style.transitionDuration = '1.5s';
-        targetExpandSection.style.minHeight = '100%';
-        targetExpandSection.style.top = "0px";
-        targetExpandSection.style.zIndex = 11;
-        targetHiddenSection.style.display = 'flex';
-        triggeredExpandbutton.style.display = "none";
-        triggeredClosebutton.style.display = 'block';
-        },100)
-        
+            targetExpandSection.style.minHeight = '100%';
+            targetExpandSection.style.top = "0px";
+            targetExpandSection.style.zIndex = 11;
+            targetHiddenSection.style.display = 'flex';
+            triggeredExpandbutton.style.display = "none";
+            triggeredClosebutton.style.display = 'block';
+            targetExpandSection.style.fontSize = '1.3rem'
+        }, 100)
+
         setTimeout(() => {
             targetHiddenSection.style.opacity = 1
         }, 800
         )
-        //alert('2nd')
     })
 
-    // Set the target value for the parameters 
-
-    /*
-    button.addEventListener('click', function (event) {
-        targetExpandSection.style.transitionDuration = '1.5s';
-        targetExpandSection.style.minHeight = '100%';
-        targetExpandSection.style.top = "0px";
-        targetExpandSection.style.zIndex = 11;
-        targetHiddenSection.style.display = 'flex';
-        triggeredExpandbutton.style.display = "none";
-        triggeredClosebutton.style.display = 'block';
-        setTimeout(() => {
-            targetHiddenSection.style.opacity = 1
-        }, 800
-        )
-        alert('2nd')
-    })
-        */
 })
 
 // ========================== Register onClick function to the close 
@@ -92,22 +74,17 @@ closeButton.forEach(button => {
         targetExpandSection.style.minHeight = initialExpandsectionHeight;
         triggeredExpandbutton.style.display = "block";
         triggeredClosebutton.style.display = 'none';
+        targetExpandSection.style.fontSize = '1rem'
         setTimeout(() => {
+            targetHiddenSection.style.display = 'none';
             targetExpandSection.style.transitionDuration = '0s';
             targetExpandSection.style.position = "relative";
             targetExpandSection.style.top = "0px";
+            
+            
         }, 1500
         )
 
-        /*
-        targetExpandSection = event.target.parentNode
-        targetPositionInfo = targetExpandSection.getBoundingClientRect().top
-        targetHiddenSection = targetExpandSection.querySelector('.expand')
-        triggeredExpandbutton = targetExpandSection.querySelector('.expandBtn')
-        triggeredClosebutton = targetExpandSection.querySelector('.closeBtn')
-        targetExpandSection.style.position = "absolute";
-        targetExpandSection.style.top = `${targetPositionInfo}px`;
-        */
     })
 })
 
@@ -120,107 +97,3 @@ const popupContainer = document.querySelector('#popupcontainer')
 
 
 
-
-/*
-// ========================== Pop Up container 
-
-// Create the outter Most Container 
-let expandContainer = document.createElement('div');
-expandContainer.setAttribute('id', 'popupcontainer');
-
-// Create  the Display Container 
-let displayContainer = document.createElement('section');
-displayContainer.setAttribute('id', 'sectiondisplay');
-
-
-expandContainer.append(displayContainer);
-document.body.append(expandContainer);
-
-
-
-// Create  the Close Button 
-let initDisplayCloseButton = document.createElement('img');
-initDisplayCloseButton.setAttribute('src', './media/image/closeIcon.png');
-initDisplayCloseButton.setAttribute('id', 'displayclosebtn')
-
-// Append the Close Button 
-function appendCloseButton() {
-    displayContainer.insertBefore(initDisplayCloseButton, displayContainer.firstChild);
-}
-
-function resetDisplayContainer() {
-    displayContainer.innerHTML = `<p>No Content</p>`
-    appendCloseButton()
-}
-
-
-resetDisplayContainer();
-
-
-
-
-
-// Set the dimension of the container 
-
-//let displayheight = window.innerHeight
-//let displaywidth = window.innerWidth
-
-
-
-
-// ========================== Expand Button for each section 
-const expandSection = document.querySelectorAll('section.expand')
-
-expandSection.forEach(section => {
-    let expandButtonElement = document.createElement('input')
-    expandButtonElement.setAttribute('type', 'button')
-    expandButtonElement.setAttribute('class', 'expandBtn')
-    expandButtonElement.setAttribute('value', 'Expand')
-
-    section.after(expandButtonElement)
-})
-
-// extracting expand information to container 
-
-const expandButton = document.querySelectorAll('input.expandBtn')
-const popupContainer = document.querySelector('#popupcontainer')
-
-// Register onClick function to the expan button 
-expandButton.forEach(button => {
-
-    button.addEventListener('click', function (event) {
-        let targetExpandInfo = event.target.previousElementSibling.innerHTML;
-        document.querySelector('#sectiondisplay').innerHTML = targetExpandInfo;
-        appendCloseButton()
-        registerCloseButton()
-
-        popupContainer.style.zIndex = 21;
-        popupContainer.style.width = '100%';
-        popupContainer.style.height = '100%';
-        popupContainer.style.opacity = '100%';
-
-
-
-    })
-
-})
-
-// Register onClick function to the close button 
-let displayCloseButton = document.querySelector('#displayclosebtn');
-
-function registerCloseButton() {
-
-    displayCloseButton = document.querySelector('#displayclosebtn');
-    displayCloseButton.addEventListener('click', function () {
-        popupContainer.style.width = '0%';
-        popupContainer.style.height = '0%';
-        popupContainer.style.opacity = '0%';
-        setTimeout(function(){
-            popupContainer.style.zIndex = -1;
-            resetDisplayContainer();
-        },1500 )
-        
-
-    })
-}
-*/
