@@ -1,21 +1,27 @@
 // ========================== Expand  / Minimize Button for each section 
 //---Create Element (Expand Button) 
-let expandButtonElement = document.createElement('img')
-expandButtonElement.setAttribute('src', './media/image/zoomOutIcon.svg')
-expandButtonElement.setAttribute('class', 'zoomBtn expandBtn')
+let createExpandButtonElement = function () { 
+    let expandButtonElement = document.createElement('img');
+    expandButtonElement.setAttribute('src', './media/image/zoomOutIcon.svg')
+    expandButtonElement.setAttribute('class', 'zoomBtn expandBtn')
+    return expandButtonElement
+}
 
 //---Create Element (Minimise Button) 
-let minimiseButtonElement = document.createElement('img')
-minimiseButtonElement.setAttribute('src', './media/image/zoomInICON.svg')
-minimiseButtonElement.setAttribute('class', 'zoomBtn closeBtn')
-minimiseButtonElement.setAttribute('style', 'display: none;')
+let createMinimiseButtonElement = function () {
+    let minimiseButtonElement = document.createElement('img')
+    minimiseButtonElement.setAttribute('src', './media/image/zoomInICON.svg')
+    minimiseButtonElement.setAttribute('class', 'zoomBtn closeBtn')
+    minimiseButtonElement.setAttribute('style', 'display: none;')
+    return minimiseButtonElement
+}
 
 
 const sectionTitle = document.querySelectorAll('h1.title')
 
 sectionTitle.forEach(title => {
-    title.before(expandButtonElement);
-    title.before(minimiseButtonElement);
+    title.before(new createExpandButtonElement);
+    title.before(new createMinimiseButtonElement);
 })
 
 // ========================== Declare Variables for the expanded sections  
