@@ -1,4 +1,5 @@
 
+
 // ========================== Expand  / Minimize Button for each section 
 //---Create Element (Expand Button) 
 let createExpandButtonElement = function () { 
@@ -35,6 +36,9 @@ popupStyleSheet.setAttribute('id', 'popupStyleSheet')
 const gridItemOfBody =  document.body.querySelectorAll('.gridItem')
 
 
+const gridItemOfBody =  document.body.querySelectorAll('.gridItem')
+
+
 const expandButton = document.querySelectorAll('img.expandBtn')
 const closeButton = document.querySelectorAll('img.closeBtn')
 
@@ -61,12 +65,26 @@ function resetBodyGridView (){
     resetBodyGridView();
 
 
+
+// ========================== Define the Inital Grid Structure of the body Element 
+function resetBodyGridView (){
+    rowtemplateArray = []
+    
+    for ( let i =0 ; i < gridItemOfBody.length ; i++){
+        rowtemplateArray.push('auto')
+    }
+    document.body.style.gridTemplateRows = `${rowtemplateArray.join(' ')}`
+};
+    resetBodyGridView();
+
+
 // ========================== Register onClick function to the expan  
 expandButton.forEach(button => {
 
     // Set the initial value for the parameters 
     button.addEventListener('mousedown', function (event) {
 
+        // Declare the variable 
         // Declare the variable 
         targetExpandSection = event.target.parentNode
         targetHiddenSection = targetExpandSection.querySelector('.expand')
@@ -127,6 +145,7 @@ expandButton.forEach(button => {
 
 // ========================== Register onClick function to the close 
 /*
+/*
 closeButton.forEach(button => {
     // Set the initial value for the parameters 
     button.addEventListener('click', function (event) {
@@ -155,6 +174,7 @@ closeButton.forEach(button => {
 
     })
 })
+*/
 */
 
 // extracting expand information to container 
