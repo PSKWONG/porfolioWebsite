@@ -1,3 +1,4 @@
+
 // ========================== Expand  / Minimize Button for each section 
 //---Create Element (Expand Button) 
 let createExpandButtonElement = function () { 
@@ -30,15 +31,16 @@ popupStyleSheet.setAttribute('href', './style/popup.css')
 popupStyleSheet.setAttribute('rel', 'stylesheet')
 popupStyleSheet.setAttribute('id', 'popupStyleSheet')
 
-
-
-
-
-
 // ========================== Declare Variables for the expanded sections  
+const gridItemOfBody =  document.body.querySelectorAll('.gridItem')
+
+
 const expandButton = document.querySelectorAll('img.expandBtn')
 const closeButton = document.querySelectorAll('img.closeBtn')
 
+var initalRowtemplateArray = []
+var rowtemplateArray = []
+var windowHeight
 
 var targetExpandSection
 var targetPositionInfo
@@ -46,46 +48,85 @@ var targetHiddenSection
 var triggeredExpandbutton
 var triggeredClosebutton
 var initialExpandsectionHeight
+
+// ========================== Define the Inital Grid Structure of the body Element 
+function resetBodyGridView (){
+    rowtemplateArray = []
+    
+    for ( let i =0 ; i < gridItemOfBody.length ; i++){
+        rowtemplateArray.push('auto')
+    }
+    document.body.style.gridTemplateRows = `${rowtemplateArray.join(' ')}`
+};
+    resetBodyGridView();
+
+
 // ========================== Register onClick function to the expan  
 expandButton.forEach(button => {
 
     // Set the initial value for the parameters 
     button.addEventListener('mousedown', function (event) {
 
-        document.head.append(popupStyleSheet)
+        // Declare the variable 
         targetExpandSection = event.target.parentNode
-        targetPositionInfo = targetExpandSection.getBoundingClientRect().top + window.scrollY
-        initialExpandsectionHeight = targetExpandSection.style.minHeight
         targetHiddenSection = targetExpandSection.querySelector('.expand')
         triggeredExpandbutton = targetExpandSection.querySelector('.expandBtn')
         triggeredClosebutton = targetExpandSection.querySelector('.closeBtn')
 
+        //Set the z-index of Expand section 
         targetExpandSection.style.zIndex = 11;
-        targetExpandSection.style.top = `${targetPositionInfo}px`;
-        targetExpandSection.style.position = "fixed";
-        targetExpandSection.style.fontSize = '1rem'
-        setTimeout(() => {
-            
-            targetExpandSection.style.transitionDuration = '1.5s';
-            //targetExpandSection.style.minHeight = '100%';
-            targetExpandSection.style.top = "0";
-            targetExpandSection.style.bottom = "0";
-            
-            targetHiddenSection.style.display = 'flex';
-            triggeredExpandbutton.style.display = "none";
-            triggeredClosebutton.style.display = 'block';
-            targetExpandSection.style.fontSize = '1.3rem'
-        }, 100)
 
+        // Set the Inital grid-template-row Value 
+        
+        let windowHeight = document.documentElement.clientHeight
+
+        for ( let i =0 ; i < gridItemOfBody.length ; i++){
+            let containerHeight = gridItemOfBody[i].offsetHeight
+            initalRowtemplateArray.push(`${(containerHeight/windowHeight)*100}vh`)
+        }
+       
+
+        // Set the grid-template-row Value 
+        let finalRowtemplateArray = []
+        
+        for ( let i =0 ; i < gridItemOfBody.length ; i++){
+            if(gridItemOfBody[i].id === targetExpandSection.id ) {
+                finalRowtemplateArray.push('100vh')
+                continue
+            }
+            finalRowtemplateArray.push('0vh')
+        }
+
+        document.body.style.gridTemplateRows = `${initalRowtemplateArray.join(' ')}`
+
+        // Adding Styling
+        setTimeout(() => {
+            document.head.append(popupStyleSheet)
+            targetHiddenSection.style.display = 'block';
+            targetExpandSection.style.overflowY = 'scroll';
+        }, 500
+        )
+        
+        setTimeout(() => {
+            document.body.style.gridTemplateRows = `${finalRowtemplateArray.join(' ')}`
+        }, 500
+        )
+
+       
+        
         setTimeout(() => {
             targetHiddenSection.style.opacity = 1
-        }, 800
+             // Control button Swapping
+            triggeredExpandbutton.style.display = "none";
+            triggeredClosebutton.style.display = 'block';
+        }, 500
         )
     })
 
 })
 
 // ========================== Register onClick function to the close 
+/*
 closeButton.forEach(button => {
     // Set the initial value for the parameters 
     button.addEventListener('click', function (event) {
@@ -114,7 +155,7 @@ closeButton.forEach(button => {
 
     })
 })
-
+*/
 
 // extracting expand information to container 
 /*

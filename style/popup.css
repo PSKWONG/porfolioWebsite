@@ -1,12 +1,14 @@
-body{
-    overflow-y: hidden;
+.contentContainer{
+    font-size: 1.3rem;
 }
 
-/* ====== About Me  ====================================================*/
-#AboutMe{
-    overflow-y: auto;
-    display: block;
+
+/* ====== Banner  ====================================================*/
+#banner{
+    overflow: hidden;
 }
+/* ====== About Me  ====================================================*/
+
 #AboutMe picture{
    
     display: inline-block;
@@ -14,12 +16,13 @@ body{
     width: 150px;
 }
 
-#Portfolio{
-    overflow-y: auto;
-}
+
 
 /* ====== Porfolio ====================================================*/
+#Portfolio{
+    overflow: hidden;
+}
+
 .showcaseContainer {
     width: 100%;
-    height: ;
 }
