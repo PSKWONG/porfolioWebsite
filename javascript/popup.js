@@ -2,7 +2,7 @@
 
 // ========================== Expand  / Minimize Button for each section 
 //---Create Element (Expand Button) 
-let createExpandButtonElement = function () { 
+let createExpandButtonElement = function () {
     let expandButtonElement = document.createElement('img');
     expandButtonElement.setAttribute('src', './media/image/zoomOutIcon.svg')
     expandButtonElement.setAttribute('class', 'zoomBtn expandBtn')
@@ -33,18 +33,21 @@ popupStyleSheet.setAttribute('rel', 'stylesheet')
 popupStyleSheet.setAttribute('id', 'popupStyleSheet')
 
 // ========================== Declare Variables for the expanded sections  
-const gridItemOfBody =  document.body.querySelectorAll('.gridItem')
-
-
-const gridItemOfBody =  document.body.querySelectorAll('.gridItem')
+const gridItemOfBody = document.body.querySelectorAll('.gridItem')
 
 
 const expandButton = document.querySelectorAll('img.expandBtn')
 const closeButton = document.querySelectorAll('img.closeBtn')
 
+
+var windowHeight = () => document.documentElement.clientHeight;
+var beforeExapndWindowsHeight = windowHeight()
+
+
+
 var initalRowtemplateArray = []
-var rowtemplateArray = []
-var windowHeight
+var finalRowtemplateArray = []
+
 
 var targetExpandSection
 var targetPositionInfo
@@ -53,29 +56,16 @@ var triggeredExpandbutton
 var triggeredClosebutton
 var initialExpandsectionHeight
 
-// ========================== Define the Inital Grid Structure of the body Element 
-function resetBodyGridView (){
-    rowtemplateArray = []
-    
-    for ( let i =0 ; i < gridItemOfBody.length ; i++){
-        rowtemplateArray.push('auto')
+// ========================== Define the Grid Structure Template of the body Element 
+function resetBodyGridView() {
+    let array =[]
+    for (let i = 0; i < gridItemOfBody.length; i++) {
+        array.push('auto')
     }
-    document.body.style.gridTemplateRows = `${rowtemplateArray.join(' ')}`
+    document.body.style.gridTemplateRows = `${array.join(' ')}`
 };
-    resetBodyGridView();
+resetBodyGridView();
 
-
-
-// ========================== Define the Inital Grid Structure of the body Element 
-function resetBodyGridView (){
-    rowtemplateArray = []
-    
-    for ( let i =0 ; i < gridItemOfBody.length ; i++){
-        rowtemplateArray.push('auto')
-    }
-    document.body.style.gridTemplateRows = `${rowtemplateArray.join(' ')}`
-};
-    resetBodyGridView();
 
 
 // ========================== Register onClick function to the expan  
@@ -95,20 +85,17 @@ expandButton.forEach(button => {
         targetExpandSection.style.zIndex = 11;
 
         // Set the Inital grid-template-row Value 
-        
-        let windowHeight = document.documentElement.clientHeight
 
-        for ( let i =0 ; i < gridItemOfBody.length ; i++){
+        for (let i = 0; i < gridItemOfBody.length; i++) {
             let containerHeight = gridItemOfBody[i].offsetHeight
-            initalRowtemplateArray.push(`${(containerHeight/windowHeight)*100}vh`)
+            initalRowtemplateArray.push(`${Math.ceil((containerHeight / windowHeight()) * 100)}vh`)
         }
-       
 
-        // Set the grid-template-row Value 
-        let finalRowtemplateArray = []
+
+        // Set the Final grid-template-row Value 
         
-        for ( let i =0 ; i < gridItemOfBody.length ; i++){
-            if(gridItemOfBody[i].id === targetExpandSection.id ) {
+        for (let i = 0; i < gridItemOfBody.length; i++) {
+            if (gridItemOfBody[i].id === targetExpandSection.id) {
                 finalRowtemplateArray.push('100vh')
                 continue
             }
@@ -124,17 +111,15 @@ expandButton.forEach(button => {
             targetExpandSection.style.overflowY = 'scroll';
         }, 500
         )
-        
+
         setTimeout(() => {
             document.body.style.gridTemplateRows = `${finalRowtemplateArray.join(' ')}`
         }, 500
         )
 
-       
-        
         setTimeout(() => {
             targetHiddenSection.style.opacity = 1
-             // Control button Swapping
+            // Control button Swapping
             triggeredExpandbutton.style.display = "none";
             triggeredClosebutton.style.display = 'block';
         }, 500
@@ -144,38 +129,47 @@ expandButton.forEach(button => {
 })
 
 // ========================== Register onClick function to the close 
-/*
-/*
+
+
 closeButton.forEach(button => {
-    // Set the initial value for the parameters 
+
     button.addEventListener('click', function (event) {
 
-        targetHiddenSection.style.transitionDuration= '0.5s'
-        targetHiddenSection.style.opacity = 0
-        targetExpandSection.style.top = `${targetPositionInfo}px`;
-        targetExpandSection.style.minHeight = initialExpandsectionHeight;
-        triggeredExpandbutton.style.display = "block";
-        triggeredClosebutton.style.display = 'none';
-        targetExpandSection.style.fontSize = '1rem'
+        // Set the Final grid-template-row Value 
+        let indexOfWindowsSizeChanging = windowHeight()/beforeExapndWindowsHeight
+        for ( let i = 0 ; i< finalRowtemplateArray.length; i++){
+            finalRowtemplateArray[i] = (initalRowtemplateArray[i].split('').filter(char => !isNaN(char) && char !== ' ').join(''))*indexOfWindowsSizeChanging + 'vh'
+        }
+
+        document.body.style.gridTemplateRows = `${finalRowtemplateArray.join(' ')}`
+              
         setTimeout(() => {
+            triggeredExpandbutton.style.display = "block";
+            triggeredClosebutton.style.display = 'none';
             targetHiddenSection.style.display = 'none';
             let popupStyleSheet = document.querySelector('#popupStyleSheet');
             popupStyleSheet.remove();
+            
 
         }, 100
         )
+        
         setTimeout(() => {
-            targetExpandSection.style.transitionDuration = '0s';
-            targetExpandSection.style.position = "relative";
-            targetExpandSection.style.top = "0px";
+            resetBodyGridView();
+            targetExpandSection.style.overflowY = 'visible';
+
             targetExpandSection.style.zIndex = 1;
+
+            initalRowtemplateArray = []
+            finalRowtemplateArray = []
         }, 1400
         )
+        
 
     })
 })
-*/
-*/
+
+
 
 // extracting expand information to container 
 /*
