@@ -138,19 +138,19 @@ header nav {
 
 header nav,
 header nav ul,
-header nav li,
-header nav a {
+header nav li {
     display: flex;
     color: gray;
 
 }
 
-header nav a {
+header nav li {
     padding: 10px 20px;
     text-decoration: none;
+    cursor: pointer;
 }
 
-header nav a::before{
+header nav li::before{
     content: '|';
     margin-right: 20px;
     font-weight: bold;
