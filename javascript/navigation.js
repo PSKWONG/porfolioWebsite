@@ -6,11 +6,10 @@ document.querySelector('header').innerHTML = `
     
         <nav>
             <ul>
-                <li><a href="./htmlSection.html">HTML</a></li>
-                <li><a href="./cssReference.html">CSS</a></li>
-                <li><a href="./javascriptRef.html">JavaScript</a></li>
-                <li><a href="./gitReference.html">Git</a></li>
-                <li><a href="./reference.html">Reference</a></li>
+                <li><a href="#AboutMe">About</a></li>
+                <li><a href="./cssReference.html">Portfolio</a></li>
+                <li><a href="./javascriptRef.html">Contact</a></li>
+                
             </ul>
         </nav>
 `

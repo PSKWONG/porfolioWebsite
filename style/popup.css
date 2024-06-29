@@ -1,7 +1,7 @@
-/*.flexContainer{
-    align-content: center;
+.flexContainer{
+    align-content: first baseline;
 }
-*/
+
 .contentContainer{
     font-size: 1.5rem;
     opacity: 0;

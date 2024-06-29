@@ -58,8 +58,9 @@ h1{
 .flexContainer{
     display: flex;
     flex-wrap: wrap;
-    /*align-items:normal;*/
-    transition-property: flex align-items ;
+    align-items:self-start;
+    align-content: flex-start;
+    transition-property: flex align-content;
     transition-duration: 1.5s;
     
     
@@ -302,6 +303,8 @@ header nav a::before{
     flex-basis: 20%;
     padding: 10px;
     border-radius: 10px;
+    transition: font 2s;
+
 }
 
 #AboutMe em {
@@ -376,7 +379,7 @@ header nav a::before{
     position: absolute;
     bottom: -20px;
     padding: 10px;
-    font-weight: 700;
+    font-weight: 300;
     text-align: center;
     overflow: hidden;
     height: 0%;
