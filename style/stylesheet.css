@@ -7,9 +7,10 @@
 }
 body{
     display: grid;
-   transition: grid;
-    transition-duration: 0.75s;
+    transition: grid;
+    transition-duration: 1s;
     height: 100vh;
+    align-items: normal;
 }
 
 table {
@@ -17,54 +18,54 @@ table {
     border-spacing: 0px;
 }
 
-/*
-
-.container {
-    overflow: hidden;
-    padding: 30px 10%;
-    box-sizing:border-box;
-    position: relative;
-    align-content: center;
-    flex-wrap: wrap;
-    line-height: 1.5;
-    transition-property: height, shaddow, top ,min-height ,display, opacity, font-size;
-
-
-}
-
-.container em {
-    color: white;
-}
-
-
-section p code,
-section li code {
-    line-height: 1rem;
-    padding: 0 10px;
-}
-    */
 
 h1,h2,h3,h4,h5,h6{
     font-family: "Lato", sans-serif;
     margin: 20px 0;
+    transition-property: font-size, margin;
+    transition-duration: 1.5s;
 }
 
 h1{
     font-size: 5rem;
     font-weight: 100;
-    margin: 50px 0px;
+   
 }
 
 .contentContainer{
     padding: 0 80px ;
     box-sizing: border-box;
     position: relative;
-    transition-property: font-size;
+    opacity: 1;
+    z-index: 1;
+    transition-property: font-size opacity z-index;
+    transition-duration: 0.5s;
+    overflow: hidden;
 }
 
-/*---- Flex Style-----*/
+.containerShaddow{
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.45);
 
-/*
+}
+.end{
+    height: 60px;
+    display: block;
+}
+
+
+
+/*---- Flex Style-----*/
+.flexContainer{
+    display: flex;
+    flex-wrap: wrap;
+    /*align-items:normal;*/
+    transition-property: flex align-items ;
+    transition-duration: 1.5s;
+    
+    
+
+}
+
 .flexOneRow {
     flex-basis: 100%;
     flex-grow: 0;
@@ -76,7 +77,7 @@ h1{
     flex-grow: 1;
     flex-shrink: 1;
 }
-    */
+    
 /*---- Zoom Button Style-----*/
 .zoomBtn {
     display: block;
@@ -160,8 +161,8 @@ header nav a::before{
 #banner{
     width: 100%;
     background-color: #034C3C;
-    padding-top: 80px;
     grid-row: 1/2;
+    overflow: hidden;
 }
 
 #bannerdisplay{
@@ -260,7 +261,7 @@ header nav a::before{
 #AboutMe{
     background-color: #a1cebb;
     color: #034C3C;
-    box-shadow: 0px 15px 25px rgba(141, 141, 141,0.45);
+    transition-property: font;
     transition-duration: 1s;
     grid-row: 2/3;
 }
@@ -272,13 +273,17 @@ header nav a::before{
     background-image: url(../media/image/profilePic.png);
     background-size: cover;
     border: 3px solid white;
-    width: 200px;
-    height: 180px;
-    display:block;
-    float: left;
-    margin-right: 80px;
-    margin-bottom: 80px;
-    transition: width 1s;
+
+    max-width: 150px;
+    min-width: 150px;
+    max-height: 150px;
+    min-height: 100px;
+
+    transition-property: width height;
+    transition-duration: 1s;
+
+    flex-basis: 50px;
+
 }
 
 #AboutMe div.introduction{
@@ -326,7 +331,6 @@ header nav a::before{
 #Portfolio {
     background-color: #FFD639  ;
     width: 100%;
-    box-shadow: 0px 15px 25px rgba(141, 141, 141,0.45);
     grid-row: 3/4;
 }
 
@@ -365,24 +369,41 @@ header nav a::before{
     box-shadow: 0 0px 25px grey;
 }
 
-.projecttitle{
+.projectDescription{
     width: 100%;
     border-radius: 5px;
     background-color: #FFD639;
-    opacity: 0.9;
     position: absolute;
     bottom: -20px;
     padding: 10px;
     font-weight: 700;
-    font-size: 1.35rem;
     text-align: center;
     overflow: hidden;
     height: 0%;
     transition-property: height;
     transition-duration: 0.5s ;
 }
-.showcaseContainer:hover .projecttitle{
-    height: 35%;
+
+.projectTitle {
+    font-display: block;
+    color: white;
+    font-weight:300;
+    font-size: 4rem;
+    position: absolute;
+    top:50px ;
+    left:10px;
+    opacity: 0.4;
+    line-height: 1;
+
+}
+/* ====== Contact ====================================================*/
+#Contact{
+    background-color: #E2B1B1;
+
+}
+
+.iconSet img{
+    height: 100px;
 }
 
 

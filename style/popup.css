@@ -1,20 +1,37 @@
+/*.flexContainer{
+    align-content: center;
+}
+*/
 .contentContainer{
-    font-size: 1.3rem;
+    font-size: 1.5rem;
+    opacity: 0;
+    line-height: 1.65;
 }
 
+h1,h2,h3,h4,h5,h6{
+    font-family: "Lato", sans-serif;
+    
+}
+
+h1{
+    font-size: 5rem;
+    font-weight: 100;
+    margin: 50px 0px;
+}
+
+h2{
+    margin-top: 50px;
+}
+
+.expand{
+    opacity: 1;
+}
 
 /* ====== Banner  ====================================================*/
 #banner{
     overflow: hidden;
 }
 /* ====== About Me  ====================================================*/
-
-#AboutMe picture{
-   
-    display: inline-block;
-    width: auto;
-    width: 150px;
-}
 
 
 
@@ -25,4 +42,9 @@
 
 .showcaseContainer {
     width: 100%;
+}
+
+
+.showcaseContainer:hover .projectDescription{
+    height: 35%;
 }

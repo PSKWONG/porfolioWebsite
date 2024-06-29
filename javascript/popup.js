@@ -36,6 +36,7 @@ popupStyleSheet.setAttribute('id', 'popupStyleSheet')
 const gridItemOfBody = document.body.querySelectorAll('.gridItem')
 
 
+
 const expandButton = document.querySelectorAll('img.expandBtn')
 const closeButton = document.querySelectorAll('img.closeBtn')
 
@@ -57,12 +58,19 @@ var triggeredClosebutton
 var initialExpandsectionHeight
 
 // ========================== Define the Grid Structure Template of the body Element 
+
+
 function resetBodyGridView() {
-    let array =[]
+    let array = []
     for (let i = 0; i < gridItemOfBody.length; i++) {
-        array.push('auto')
+        if (i == 0) {
+            array.push('430px')
+        } else {
+            array.push('minmax(115px,1fr)')
+        }
     }
     document.body.style.gridTemplateRows = `${array.join(' ')}`
+
 };
 resetBodyGridView();
 
@@ -82,43 +90,44 @@ expandButton.forEach(button => {
         triggeredClosebutton = targetExpandSection.querySelector('.closeBtn')
 
         //Set the z-index of Expand section 
-        targetExpandSection.style.zIndex = 11;
+        targetExpandSection.style.zIndex = 21;
 
         // Set the Inital grid-template-row Value 
-
-        for (let i = 0; i < gridItemOfBody.length; i++) {
-            let containerHeight = gridItemOfBody[i].offsetHeight
-            initalRowtemplateArray.push(`${Math.ceil((containerHeight / windowHeight()) * 100)}vh`)
-        }
-
+        /*
+                for (let i = 0; i < gridItemOfBody.length; i++) {
+                    let containerHeight = gridItemOfBody[i].offsetHeight
+                    initalRowtemplateArray.push(`${Math.ceil((containerHeight / windowHeight()) * 100)}vh`)
+                }
+        */
 
         // Set the Final grid-template-row Value 
-        
-        for (let i = 0; i < gridItemOfBody.length; i++) {
-            if (gridItemOfBody[i].id === targetExpandSection.id) {
-                finalRowtemplateArray.push('100vh')
-                continue
-            }
-            finalRowtemplateArray.push('0vh')
-        }
 
-        document.body.style.gridTemplateRows = `${initalRowtemplateArray.join(' ')}`
+        for (let i = 0; i < gridItemOfBody.length; i++) {
+            if (i == 0) {
+                finalRowtemplateArray.push('0px')
+            } else if (gridItemOfBody[i].id === targetExpandSection.id) {
+                finalRowtemplateArray.push('minmax(100vh, 100vh)')
+            } else {
+                finalRowtemplateArray.push('0fr')
+            }
+        }
+        targetHiddenSection.style.display = 'block';
+        targetExpandSection.style.overflowY = 'scroll';
+        document.body.style.gridTemplateRows = `${finalRowtemplateArray.join(' ')}`
+
+        // document.body.style.gridTemplateRows = `${initalRowtemplateArray.join(' ')}`
 
         // Adding Styling
         setTimeout(() => {
+
             document.head.append(popupStyleSheet)
-            targetHiddenSection.style.display = 'block';
-            targetExpandSection.style.overflowY = 'scroll';
+            targetExpandSection.style.opacity = 1;
         }, 500
         )
 
-        setTimeout(() => {
-            document.body.style.gridTemplateRows = `${finalRowtemplateArray.join(' ')}`
-        }, 500
-        )
+
 
         setTimeout(() => {
-            targetHiddenSection.style.opacity = 1
             // Control button Swapping
             triggeredExpandbutton.style.display = "none";
             triggeredClosebutton.style.display = 'block';
@@ -128,43 +137,34 @@ expandButton.forEach(button => {
 
 })
 
-// ========================== Register onClick function to the close 
+// ========================== Register onClick function to the close
 
 
 closeButton.forEach(button => {
 
     button.addEventListener('click', function (event) {
 
-        // Set the Final grid-template-row Value 
-        let indexOfWindowsSizeChanging = windowHeight()/beforeExapndWindowsHeight
-        for ( let i = 0 ; i< finalRowtemplateArray.length; i++){
-            finalRowtemplateArray[i] = (initalRowtemplateArray[i].split('').filter(char => !isNaN(char) && char !== ' ').join(''))*indexOfWindowsSizeChanging + 'vh'
-        }
+        let popupStyleSheet = document.querySelector('#popupStyleSheet');
+        popupStyleSheet.remove();
 
-        document.body.style.gridTemplateRows = `${finalRowtemplateArray.join(' ')}`
-              
+        setTimeout(() => {
+            resetBodyGridView();
+        }, 500
+        )
+
         setTimeout(() => {
             triggeredExpandbutton.style.display = "block";
             triggeredClosebutton.style.display = 'none';
-            targetHiddenSection.style.display = 'none';
-            let popupStyleSheet = document.querySelector('#popupStyleSheet');
-            popupStyleSheet.remove();
             
-
-        }, 100
-        )
-        
-        setTimeout(() => {
-            resetBodyGridView();
-            targetExpandSection.style.overflowY = 'visible';
-
+            targetExpandSection.style.overflowY = 'hidden';
+            targetHiddenSection.style.display = 'none';
             targetExpandSection.style.zIndex = 1;
 
             initalRowtemplateArray = []
             finalRowtemplateArray = []
-        }, 1400
+        }, 1300
         )
-        
+
 
     })
 })
