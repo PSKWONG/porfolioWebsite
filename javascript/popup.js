@@ -33,7 +33,7 @@ popupStyleSheet.setAttribute('rel', 'stylesheet')
 popupStyleSheet.setAttribute('id', 'popupStyleSheet')
 
 // ========================== Declare Variables for the expanded sections  
-const navigationLinkItems = document.querySelector('ul').querySelectorAll('li')
+//const navigationLinkItems = document.querySelector('ul').querySelectorAll('li')
 const gridItemOfBody = document.body.querySelectorAll('.gridItem') // Find the ITem with specific class name 
 
 const display = document.getElementById('displayWrapper');
