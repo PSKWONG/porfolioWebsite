@@ -1,44 +1,50 @@
-.flexContainer{
+.flexContainer {
     align-content: first baseline;
 }
 
-.contentContainer{
+.contentContainer {
     font-size: 1.5rem;
     opacity: 0;
     line-height: 1.65;
 }
 
-h1,h2,h3,h4,h5,h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: "Lato", sans-serif;
-    
+
 }
 
-h1{
+h1 {
     font-size: 5rem;
     font-weight: 100;
 }
 
-h2{
+h2 {
     margin-top: 50px;
 }
 
-.expand{
+.expand {
     opacity: 1;
 }
 
 /* ====== Banner  ====================================================*/
-#banner{
+#banner {
     overflow: hidden;
 }
+
 /* ====== About Me  ====================================================*/
 
-#contentWrapper{
+#contentWrapper {
     width: 100vw;
     height: 100vh;
 }
 
 /* ====== Porfolio ====================================================*/
-#Portfolio{
+#Portfolio {
     overflow: hidden;
 }
 
@@ -47,10 +53,27 @@ h2{
 }
 
 
-.showcaseContainer:hover .projectDescription{
+.showcaseContainer:hover .projectDescription {
     height: 35%;
 }
 
-.contentInterDisply{
+.contentInterDisply {
     overflow-y: scroll;
 }
+
+
+@media only screen and (max-width: 768px)  {
+    .projectDescription {
+        font-size:0.65em;
+    }
+}
+
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    .projectDescription {
+        font-size:0.85em;
+    }
+
+}
+
+

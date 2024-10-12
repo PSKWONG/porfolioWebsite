@@ -270,7 +270,7 @@ header nav li::before{
     width: 30%;
     position: absolute;
     right: 20px;
-    bottom: 150px;
+    bottom: 50px;
     color: rgb(255, 255, 255);
     font-weight: 200;
     line-height: 1.5;
@@ -481,3 +481,39 @@ header nav li::before{
 
 
 /* ---  desktop ---*/
+
+
+
+/* ---  iPad portrait  ---*/
+@media only screen and (max-width: 768px)  {
+    :root{
+        --bodyPortion: 50% 50%;
+        --targetBodyPortion: 0% 100%;
+        --contentPortion: 1fr 1fr 1fr;
+        --targetContentPortion :  1fr 0fr 0fr;
+    }
+    #bannerdisplay .introduction{
+        display: none;
+    }
+    .normalCW{
+        grid-template: var(--contentPortion) / 1fr  ;
+    }
+    .expandCW {
+        grid-template:  var(--targetContentPortion) / 1fr ;
+    }
+    h1{
+        font-size: 8vw;
+        font-weight: 100;
+        line-height: 2em;
+        margin-left: 50px;
+    }
+    
+
+}
+
+@media only screen  and (max-width: 468px)  {
+    nav{
+        display: none;
+    }
+
+}
