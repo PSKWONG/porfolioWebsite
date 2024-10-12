@@ -31,7 +31,7 @@ headerScript.setAttribute ('defer','true')
 
 //Popup Container  Element Javascript 
 const popupScript = document.createElement('script');
-/*popupScript.setAttribute ('src','./javascript/popup.js')*/
+popupScript.setAttribute ('src','./javascript/popup.js')
 popupScript.setAttribute ('async','true')
 
 

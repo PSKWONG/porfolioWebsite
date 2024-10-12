@@ -34,7 +34,10 @@ popupStyleSheet.setAttribute('id', 'popupStyleSheet')
 
 // ========================== Declare Variables for the expanded sections  
 const navigationLinkItems = document.querySelector('ul').querySelectorAll('li')
-const gridItemOfBody = document.body.querySelectorAll('.gridItem')
+const gridItemOfBody = document.body.querySelectorAll('.gridItem') // Find the ITem with specific class name 
+
+const display = document.getElementById('displayWrapper');
+const contentWP = document.getElementById('contentWrapper');
 
 
 
@@ -60,7 +63,7 @@ var initialExpandsectionHeight
 
 // ========================== Define the Grid Structure Template of the body Element 
 
-
+/* Old Version 
 function resetBodyGridView() {
     let array = []
     for (let i = 0; i < gridItemOfBody.length; i++) {
@@ -73,15 +76,22 @@ function resetBodyGridView() {
     document.body.style.gridTemplateRows = `${array.join(' ')}`
 
 };
+*/
+function resetBodyGridView() {
+
+    display.className = "normalDW";
+    contentWP.className = "normalCW";
+}
+
 resetBodyGridView();
 
 
 
 // ========================== Register onClick function to the expan  
 // Expanding section Function 
+
 function expandingContentContainer(event) {
 
-    // Declare the variable 
     // Declare the variable 
     targetExpandSection = event.target.parentNode
     targetHiddenSection = targetExpandSection.querySelector('.expand')
@@ -95,19 +105,25 @@ function expandingContentContainer(event) {
     // Set the Final grid-template-row Value 
 
     for (let i = 0; i < gridItemOfBody.length; i++) {
-        if (i == 0) {
-            finalRowtemplateArray.push('0px')
-        } else if (gridItemOfBody[i].id === targetExpandSection.id) {
-            finalRowtemplateArray.push('minmax(100vh, 100vh)')
+        if (gridItemOfBody[i].id === targetExpandSection.id) {
+            finalRowtemplateArray.push('1fr')
         } else {
             finalRowtemplateArray.push('0fr')
         }
     }
+
+
     targetHiddenSection.style.display = 'block';
     targetExpandSection.style.overflowY = 'scroll';
-    document.body.style.gridTemplateRows = `${finalRowtemplateArray.join(' ')}`
+    document.documentElement.style.setProperty('--targetContentPortion',finalRowtemplateArray.join(' '));
+    //  document.body.style.gridTemplateRows = `${finalRowtemplateArray.join(' ')}`
 
     // document.body.style.gridTemplateRows = `${initalRowtemplateArray.join(' ')}`
+
+    display.className = "normalDW expanDW";
+    contentWP.className = "normalCW expandCW ";
+
+
 
     // Adding Styling
     setTimeout(() => {
