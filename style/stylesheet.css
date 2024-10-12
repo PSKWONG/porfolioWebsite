@@ -99,6 +99,21 @@ h1{
 }
 
 
+/* ====== Display  ====================================================*/
+#displayWrapper {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-rows: 60% 40%;
+    overflow: hidden;
+    transition: grid 1s;
+}
+/*
+#displayWrapper:hover{
+    grid-template-rows: 0% 100%;
+}
+*/
+
 
 /* ====== Header  ====================================================*/
 
@@ -256,6 +271,22 @@ header nav li::before{
 #bannerdisplay .introduction p{
     margin-bottom: 10px;
 }
+/* ====== Content  ====================================================*/
+#contentWrapper {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template: 1fr / 1fr 1fr 1fr;
+    transition: grid 1s;
+
+}
+
+/*
+#contentWrapper:hover {
+    grid-template: 1fr 0fr 0fr / 1fr 0fr 0fr;
+
+}
+*/
 
 /* ====== About Me  ====================================================*/
 
@@ -264,7 +295,6 @@ header nav li::before{
     color: #034C3C;
     transition-property: font;
     transition-duration: 1s;
-    grid-row: 2/3;
 }
 
 
@@ -334,7 +364,6 @@ header nav li::before{
 #Portfolio {
     background-color: #FFD639  ;
     width: 100%;
-    grid-row: 3/4;
 }
 
 .showcaseContainer{
