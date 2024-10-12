@@ -27,25 +27,22 @@ table {
 
 h1,h2,h3,h4,h5,h6{
     font-family: "Lato", sans-serif;
-    margin: 20px 0;
     transition-property: font-size, margin;
     transition-duration: 1.5s;
 }
 
 h1{
-    font-size: 5rem;
+    font-size: 3vw;
     font-weight: 100;
-   
+    line-height: 2em;
+    margin-left: 50px;
 }
 
 .contentContainer{
     box-sizing: border-box;
     position: relative;
-    opacity: 1;
-    z-index: 1;
-    transition-property: font-size opacity z-index;
-    transition-duration: 0.5s;
-    overflow: hidden;
+    height: 100%;
+    width: 100%;
 }
 
 .containerShaddow{
@@ -185,18 +182,22 @@ header nav li::before{
 #banner{
     width: 100%;
     background-color: #034C3C;
-    grid-row: 1/2;
     overflow: hidden;
+    height: 100%;
+    position: relative;
 }
 
 #bannerdisplay{
     min-width: 750px;
     max-width: 1300px;
-    height: 450px;
+    width: 80%;
+    min-height: 430px;
     overflow:visible;
     /*border: 1px solid black;*/
-    position: relative;
-    margin: 0 auto;
+    position: absolute;
+    bottom: 0px;
+    left:50%;
+    transform: translate(-50%, 0%);
 }
 
 #avatar{
@@ -216,8 +217,8 @@ header nav li::before{
 
 #jobTitle{
     color: white;
-    position: relative;
-    top: 30%;
+    position: absolute;
+    bottom: 150px;
     left:50px;
     max-width: 35%;
 }
@@ -265,9 +266,11 @@ header nav li::before{
 }
 
 #bannerdisplay .introduction{
-    max-width: 30%;
+    max-width: 30vw;
+    width: 30%;
     position: absolute;
     right: 20px;
+    bottom: 150px;
     color: rgb(255, 255, 255);
     font-weight: 200;
     line-height: 1.5;
@@ -285,6 +288,7 @@ header nav li::before{
     width: 100%;
     display: grid;
     transition: grid 1s;
+    /*background-color: black;*/
 
 }
 
@@ -295,6 +299,22 @@ header nav li::before{
 
 .expandCW {
     grid-template: 1fr / var(--targetContentPortion);
+}
+
+.contentDisplyBorder{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    
+}
+
+.contentInterDisply{
+    width: calc(100vw - 100px);
+    height: calc(100vh - 260px);
+    overflow-y:hidden;
+    margin: 50px;
+    
+    
 }
 
 /* ====== About Me  ====================================================*/
@@ -308,6 +328,7 @@ header nav li::before{
 
 
 #AboutMe picture{
+    display:inline-flex;
     height: 150px;
     border-radius: 50% 0% 50% 0%;
     background-image: url(../media/image/profilePic.png);
@@ -322,14 +343,18 @@ header nav li::before{
     transition-property: width height;
     transition-duration: 1s;
 
-    flex-basis: 50px;
+    flex-basis: 150px;
+
+    margin-right: 50px;
+    margin-bottom: 50px;
 
 }
 
 #AboutMe div.introduction{
-    display: flexbox;
-    flex: 1 1 450px;
-    padding: 0px 50px;
+    display: flex;
+    flex-flow: wrap;
+    /*flex: 1 1 450px;
+    padding: 0px 50px;*/
 }
 #AboutMe ul , #AboutMe li{
     display: flex;
@@ -339,7 +364,8 @@ header nav li::before{
 #AboutMe li {
     margin: 10px;
     background-color: white;
-    flex-basis: 20%;
+    flex-basis: calc((100vw-160px)/3);
+    flex-grow: 0;
     padding: 10px;
     border-radius: 10px;
     transition: font 2s;
@@ -349,6 +375,9 @@ header nav li::before{
 #AboutMe em {
     margin: 0 10px;
     font-weight: 500;
+    background-color: #a1cebb;
+    padding: 2px 10px;
+    border-radius: 5px;
 }
 
 #AboutMe .resume{
@@ -385,6 +414,7 @@ header nav li::before{
     position: relative;
     transition-property: width flex;
     transition-duration: 1s;
+    margin-bottom: 15px;
 }
 
 .projecttype{

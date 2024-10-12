@@ -16,7 +16,6 @@ h1,h2,h3,h4,h5,h6{
 h1{
     font-size: 5rem;
     font-weight: 100;
-    margin: 50px 0px;
 }
 
 h2{
@@ -33,7 +32,10 @@ h2{
 }
 /* ====== About Me  ====================================================*/
 
-
+#contentWrapper{
+    width: 100vw;
+    height: 100vh;
+}
 
 /* ====== Porfolio ====================================================*/
 #Portfolio{
@@ -41,10 +43,14 @@ h2{
 }
 
 .showcaseContainer {
-    width: 100%;
+    width: 95%;
 }
 
 
 .showcaseContainer:hover .projectDescription{
     height: 35%;
+}
+
+.contentInterDisply{
+    overflow-y: scroll;
 }

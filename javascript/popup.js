@@ -93,6 +93,7 @@ resetBodyGridView();
 function expandingContentContainer(event) {
 
     // Declare the variable 
+    //let targetExpandSectionWrapper = event.target.parentNode.parentNode.parentNode
     targetExpandSection = event.target.parentNode
     targetHiddenSection = targetExpandSection.querySelector('.expand')
     triggeredExpandbutton = targetExpandSection.querySelector('.expandBtn')
@@ -114,7 +115,7 @@ function expandingContentContainer(event) {
 
 
     targetHiddenSection.style.display = 'block';
-    targetExpandSection.style.overflowY = 'scroll';
+    //targetExpandSection.style.overflowY = 'scroll';
     document.documentElement.style.setProperty('--targetContentPortion',finalRowtemplateArray.join(' '));
     //  document.body.style.gridTemplateRows = `${finalRowtemplateArray.join(' ')}`
 
@@ -173,9 +174,9 @@ closeButton.forEach(button => {
             triggeredExpandbutton.style.display = "block";
             triggeredClosebutton.style.display = 'none';
 
-            targetExpandSection.style.overflowY = 'hidden';
-            targetHiddenSection.style.display = 'none';
-            targetExpandSection.style.zIndex = 1;
+           // targetExpandSection.style.overflowY = 'hidden';
+            //targetHiddenSection.style.display = 'none';
+            //targetExpandSection.style.zIndex = 1;
 
             initalRowtemplateArray = []
             finalRowtemplateArray = []
