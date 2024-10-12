@@ -170,8 +170,8 @@ header nav li::before{
     min-width: 750px;
     max-width: 1300px;
     height: 450px;
-    overflow: hidden;
-    border: 1px solid black;
+    overflow:visible;
+    /*border: 1px solid black;*/
     position: relative;
     margin: 0 auto;
 }
