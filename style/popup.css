@@ -89,5 +89,13 @@ h2 {
     }
 
 }
+@media only screen and (max-width: 450px) {
+   
+    .projectDescription{
+        width: 95%;
+        font-size: 0.5em;
+    }
+
+}
 
 
