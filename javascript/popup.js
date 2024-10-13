@@ -189,6 +189,7 @@ closeButton.forEach(button => {
 })
 
 // ========================== Register onClick function to the Navigation Items 
+/*
 
 for (let i = 0; i < navigationLinkItems.length; i++) {
     navigationLinkItems[i].addEventListener('click', function () {
@@ -198,6 +199,6 @@ for (let i = 0; i < navigationLinkItems.length; i++) {
     })
 
 }
-
+*/
 
 

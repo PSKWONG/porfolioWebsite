@@ -132,7 +132,7 @@ header {
     box-shadow: 0px 5px 25px black;
     z-index: 10;
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 50px 1fr;
     box-sizing: border-box;
     align-items: center;
 
@@ -175,6 +175,11 @@ header nav li::before{
     margin-right: 20px;
     font-weight: bold;
     color: black;
+}
+
+.headerGreeting{
+    justify-self: end;
+    color: #034C3C;
 }
 
 
@@ -507,8 +512,23 @@ header nav li::before{
         line-height: 2em;
         margin-left: 50px;
     }
-    
+    #jobTitle{
+        display:none;
+    }
 
+    .contentContainer{
+        box-shadow:0px 0px 10px black;
+    }
+
+}
+
+@media only screen and (max-height: 450px) {
+    :root{
+        --bodyPortion: 15% 85%;
+        --targetBodyPortion: 0% 100%;
+        --contentPortion: 1fr 1fr 1fr;
+        --targetContentPortion :  1fr 0fr 0fr;
+    }
 }
 /*
 @media only screen  and (max-width: 468px)  {
