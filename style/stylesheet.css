@@ -529,6 +529,9 @@ header nav li::before{
         --contentPortion: 1fr 1fr 1fr;
         --targetContentPortion :  1fr 0fr 0fr;
     }
+    .contentContainer{
+        z-index: 20;
+    }
 }
 /*
 @media only screen  and (max-width: 468px)  {
